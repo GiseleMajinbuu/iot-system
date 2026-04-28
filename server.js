@@ -1,10 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const path = require('path');
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public')); // Pasta pública 
+app.use(express.static(path.join(__dirname, 'public'))); // Pasta pública 
 
 const SECRET_KEY = "ufsc_web_key";
 let users = []; // { email, senha, nome, sensores: [] } 
