@@ -103,4 +103,10 @@ app.post('/sensor/data', (req, res) => {
     res.status(401).send("Falha na autenticação do sensor");
 });
 
-app.listen(3000, () => console.log("Servidor rodando em http://localhost:3000"));
+const port = process.env.PORT || 3000;
+
+if (require.main === module) {
+    app.listen(port, () => console.log(`Servidor rodando em http://localhost:${port}`));
+}
+
+module.exports = app;
